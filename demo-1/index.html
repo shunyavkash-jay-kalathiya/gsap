@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="container">
+                <div class="box" id="box1"></div>
+                <div class="box" id="box2"></div>
+                <div class="box" id="box3"></div>
+                <div class="box" id="box4"></div>
+                <div class="box" id="box5"></div>
+                <div class="box" id="box6"></div>
+                <div class="box" id="box7"></div>
+                <div class="box" id="box8"></div>
+                <div class="box" id="box9"></div>
+                <div class="box" id="box10"></div>
+                <div class="box" id="box11"></div>
+                <div class="box" id="box12"></div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Sab boxes jinke id "box1", "box2", ... format me hain
+        const totalBoxes = document.querySelectorAll("[id^='box']").length;
+
+        const tl = gsap.timeline({
+            delay: 0.1
+        });
+
+        for (let i = 1; i <= totalBoxes; i++) {
+            tl.from(`#box${i}`, {
+                duration: 0.5,
+                scale: 0.1,
+                y: 500,
+                opacity: 0
+            });
+        }
+    </script>
+      
+      
+</body>
+
+</html>

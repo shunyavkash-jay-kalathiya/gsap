@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div id="cursor"></div>
+        <div class="main">
+            <div class="back-img" id="image-add">
+                <div class="overlay"></div>
+                <img src="https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68" alt="IMG">
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script>
+     var main = document.querySelector(".main")
+     var img = document.querySelector(".back-img")
+     var cursor = document.querySelector("#cursor")
+        main.addEventListener("mousemove", function (event) {
+            gsap.to(cursor,{
+                x: event.x,
+                y: event.y,
+            })
+        })
+        img.addEventListener("mousemove", function (event) {
+            cursor.innerHTML='view'
+            gsap.to(cursor,{
+               scale:3,
+               backgroundColor: "#ffffff94",
+            })
+        })
+        img.addEventListener("mouseleave", function (event) {
+            cursor.innerHTML=''
+            gsap.to(cursor,{
+               scale:1,
+               backgroundColor: "#ffffff",
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>

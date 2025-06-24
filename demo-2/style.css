@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+  .box {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgb(0, 174, 255);
+    position: relative;
+    height: 300PX;
+    width: 300px;
+     border: 1px solid black;
+  }
+
+  .sec-1{
+    height: 100vh;
+    background-color: chocolate;
+  }
+  .sec-2{
+    height: 100vh;
+    background-color: rgb(11, 190, 161);
+  }
+  .sec-3{
+    height: 100vh;
+    background-color: rgb(74, 11, 190);
+  }
+
+  .sec-3 h1{
+    color: white;
+    font-size: 40vw;
+    font-family:'Outfit';
+  }

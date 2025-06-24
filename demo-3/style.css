@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  background-color: black;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.icon{
+  background-color:gold;
+  display: flex;
+  justify-content:center;
+  align-items:center ;
+}
+.icon svg{
+  display:block ;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="container demo-1">
+                <h1>Experien &nbsp; all</h1>
+            </div>
+        </section>
+        <section>
+            <div class="container demo-2">
+                <h1>National&nbsp;&nbsp; Aeronautics&nbsp;&nbsp; and &nbsp;&nbsp;Space&nbsp;&nbsp; Administration</h1>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function textAnimation() {
+            var h1 = document.querySelector(".demo-1 h1")
+            var h1text = h1.textContent
+            var allText = h1text.split("")
+            var halfText = allText.length / 3
+            var cut = ""
+            allText.forEach(function (e, id) {
+                if (id < halfText) {
+                    cut += `<span class="a">${e}</span>`
+                } else {
+                    cut += `<span class="b">${e}</span>`
+                }
+            });
+            h1.innerHTML = cut
+        }
+        textAnimation()
+        gsap.from("h1 .a", {
+            y: 50,
+            duration: 0.6,
+            delay: 0.5,
+            opacity: 0,
+            stagger: 0.15
+        })
+        gsap.from("h1 .b", {
+            y: 50,
+            duration: 0.6,
+            delay: 0.5,
+            opacity: 0,
+            stagger: -0.15
+        })
+
+        function textAnimation2() {
+                const h1 = document.querySelector(".demo-2 h1");
+                const h1text = h1.textContent;
+                const allText = h1text.split("");
+                let cut = "";
+                allText.forEach((char) => {
+                    if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+                        cut += `<span class="a">${char}</span>`;
+                    } else {
+                        cut += `<span class="b">${char}</span>`;
+                    }
+                });
+                h1.innerHTML = cut;
+            }
+
+            textAnimation2();
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    markers: true,
+                    trigger: ".demo-2",
+                    scroller: "body",
+                    start: "top 0%",
+                    end: "top -150%",
+                    scrub: 2,
+                    pin: true
+                }
+            });
+
+            // Animate out lowercase `.b` letters
+            tl.to(".demo-2 h1 .b", {
+                y: -40,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    document.querySelectorAll(".demo-2 h1 .b").forEach(el => {
+                        el.style.display = "none";
+                    });
+                },
+                stagger: 0.02,
+            }, 0);
+
+            // Animate in uppercase `.a` letters
+            tl.from(".demo-2 h1 .a", {
+                duration: 1,
+                ease: "back.out(1.7)",
+                stagger: 0.04
+            }, 0.2);
+
+
+    </script>
+
+
+</body>
+
+</html>

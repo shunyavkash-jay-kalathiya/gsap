@@ -4,10 +4,13 @@
   box-sizing: border-box;
 }
 body{
-  overflow-x: hidden;
+
   background-color: black;
   font-family:'Outfit';
   color: white;
+}
+section{
+  overflow-x: hidden;
 }
 .container {
   height: 100vh;
@@ -20,6 +23,7 @@ body{
   justify-content: center;
 }
 .demo-1 h1{
+
   font-size: 10vh;
   font-weight: 500;
 }
@@ -27,8 +31,11 @@ body{
   font-size: 6vh;
   font-weight: 500;
 }
-h1 span{
+h1 span {
   display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1;
 }
 .demo-2 .a {
   color: red;
@@ -37,4 +44,5 @@ h1 span{
 
 .demo-2 .b {
   color: rgb(0, 0, 182);
+  display: inline-block;
 }
